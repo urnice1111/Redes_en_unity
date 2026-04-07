@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UIElements;
@@ -56,6 +55,7 @@ public class RegisterUser : MonoBehaviour
         {
             resultMessage.style.opacity = 100;
             resultMessage.text = "¡Usuario creado exitosamente!";
+            resultMessage.style.color = Color.green;
         } else
         {
             Debug.Log(www.responseCode);

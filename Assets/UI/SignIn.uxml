@@ -5,7 +5,7 @@
         <ui:VisualElement name="TextInputHolders" class="textInputContainer" style="flex-grow: 1; flex-direction: column; margin-top: 0; margin-bottom: 0; margin-left: 200px; margin-right: 200px; background-color: rgba(149, 149, 149, 0.38); border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;">
             <ui:Label text="Sign In" parse-escape-sequences="true" name="Label" style="font-size: 60px; -unity-font-style: bold; margin-bottom: 48px; margin-top: 26px;"/>
             <ui:TextField label="" placeholder-text="Correo" binding-path="" value="" keyboard-type="EmailAddress" select-all-on-focus="true" select-all-on-mouse-up="true" hide-placeholder-on-focus="false" focusable="true" name="EmailEntry" class="textField" style="white-space: nowrap; text-overflow: ellipsis;"/>
-            <ui:TextField label="" placeholder-text="Contraseña" value="" password="false" name="PasswordEntry" class="textField"/>
+            <ui:TextField label="" placeholder-text="Contraseña" value="" password="true" name="PasswordEntry" class="textField"/>
             <ui:Button text="Sign In" name="SignInButton" class="button" style="flex-direction: column; margin-bottom: 26px; -unity-font-style: bold;"/>
             <ui:Label text="Label" name="Response" enabled="true" style="font-size: 20px; opacity: 0;"/>
         </ui:VisualElement>
