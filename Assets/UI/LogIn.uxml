@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/SignIn.uss?fileID=7433441132597879392&amp;guid=3563b1b04caa446e49c6f9550e816ed1&amp;type=3#SignIn"/>
+    <ui:VisualElement name="MainContainer" style="flex-grow: 1; align-items: center; flex-direction: row; align-self: auto;">
+        <ui:Image name="Image" source="project://database/Assets/Images/logo_nide.png?fileID=2800000&amp;guid=18fcf4b63eb894e6bac25e35c6f8cc7c&amp;type=3#logo_nide" style="align-items: flex-start; width: 500px; height: 500px; margin-left: 170px;"/>
+        <ui:VisualElement name="TextInputHolders" class="textInputContainer" style="flex-grow: 1; flex-direction: column; margin-top: 0; margin-bottom: 0; margin-left: 200px; margin-right: 200px; background-color: rgba(149, 149, 149, 0.38); border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;">
+            <ui:Label text="Sign In" parse-escape-sequences="true" name="Label" style="font-size: 60px; -unity-font-style: bold; margin-bottom: 48px; margin-top: 26px;"/>
+            <ui:TextField label="" placeholder-text="Correo" binding-path="" value="" keyboard-type="EmailAddress" select-all-on-focus="true" select-all-on-mouse-up="true" hide-placeholder-on-focus="false" focusable="true" name="EmailEntry" class="textField" style="white-space: nowrap; text-overflow: ellipsis;"/>
+            <ui:TextField label="" placeholder-text="Contraseña" value="" password="true" name="PasswordEntry" class="textField"/>
+            <ui:Button text="Sign In" name="SignInButton" class="button" style="flex-direction: column; margin-bottom: 26px; -unity-font-style: bold;"/>
+            <ui:Label text="Label" name="Response" enabled="true" style="font-size: 20px; opacity: 0;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
