@@ -44,6 +44,8 @@ public class RegisterUser : MonoBehaviour
 
         using UnityWebRequest www = UnityWebRequest.Post("http://localhost:3000/register", jsonBody, "application/json");
         www.timeout = 5;
+
+        
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)

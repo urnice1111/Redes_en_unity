@@ -30,7 +30,7 @@ public class ConfirmUser : MonoBehaviour
 
     private void ConfirmCredentials()
     {
-        string email = emailEntry.value.Trim();
+        string email = emailEntry.value;
         string password = passwordEntry.value;
 
         if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
@@ -52,12 +52,8 @@ public class ConfirmUser : MonoBehaviour
 
         string jsonBody = JsonUtility.ToJson(loginData);
 
-        using UnityWebRequest www = new UnityWebRequest("http://localhost:3000/login", "POST");
-        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonBody);
-        www.uploadHandler = new UploadHandlerRaw(bodyRaw);
-        www.downloadHandler = new DownloadHandlerBuffer();
-        www.SetRequestHeader("Content-Type", "application/json");
-        www.timeout = 5;
+        using UnityWebRequest www = UnityWebRequest.Post("http://localhost:3000/login", jsonBody, "application/json");
+
 
         yield return www.SendWebRequest();
 
@@ -83,50 +79,6 @@ public class ConfirmUser : MonoBehaviour
             ShowMessage("Login failed. Please try again.", Color.red);
         }
     }
-
-     IEnumerator SetLoginUser(int userId)
-        {
-            string jsonBody = "{\"userId\":" + userId + "}";
-    
-            using UnityWebRequest www = new UnityWebRequest("http://localhost:3000/set_login_user", "PUT");
-            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonBody);
-            www.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            www.downloadHandler = new DownloadHandlerBuffer();
-            www.SetRequestHeader("Content-Type", "application/json");
-            www.timeout = 5;
-    
-            yield return www.SendWebRequest();
-    
-            if (www.result != UnityWebRequest.Result.Success)
-            {
-                Debug.LogError("Session registration failed: " + www.error);
-                ShowMessage("Could not register session.", Color.red);
-                yield break;
-            }
-    
-            if (www.responseCode == 201)
-            {
-                ShowMessage("Session registered! Loading game...", Color.green);
-                SceneManager.LoadScene("SampleScene");
-            }
-            else
-            {
-                Debug.LogWarning("Unexpected session response: " + www.responseCode + " - " + www.downloadHandler.text);
-                ShowMessage("Could not register session.", Color.red);
-            }
-        }
-    
-        private void ShowMessage(string text, Color color)
-        {
-            if (resultMessage != null)
-            {
-                resultMessage.text = text;
-                resultMessage.style.color = color;
-                resultMessage.style.opacity = 1;
-            }
-        }
-    }
-    
     
     private void ShowMessage(string text, Color color)
     {
